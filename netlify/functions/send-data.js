@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
     
     try {
         // Ambil data dari request body
-        const { phone, message, timestamp, ip } = JSON.parse(event.body);
+        const { phone, message } = JSON.parse(event.body);
         
         if (!phone) {
             return {
