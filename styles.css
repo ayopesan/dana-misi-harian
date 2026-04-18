@@ -1,0 +1,433 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ebedf0;
+    direction: ltr;
+}
+
+/* Header Banner */
+.header-banner {
+    width: 100%;
+    display: block;
+}
+
+.header-banner img {
+    width: 100%;
+    display: block;
+}
+
+/* Title Bar */
+.title-bar {
+    text-align: center;
+    background-color: #148CE3;
+    color: #FFF;
+    padding: 12px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Main Post Container */
+.post {
+    background: #fff;
+    margin: 0 auto;
+    max-width: 500px;
+    border: 1px solid #d0d1d5;
+    border-radius: 3px;
+}
+
+/* Welcome Text */
+.welcome {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Button Styles */
+.btn-primary {
+    display: block;
+    width: 200px;
+    height: 50px;
+    color: #FFF;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 10px auto;
+    background: #148CE3;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #0f6cb3;
+    transform: scale(1.02);
+}
+
+/* Phone Input Section */
+.phone {
+    max-width: 350px;
+    margin: 10px auto;
+    padding: 0 15px;
+}
+
+.phone input {
+    width: 100%;
+    height: 56px;
+    padding: 10px 15px;
+    outline: none;
+    border: 2px solid #cecece;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.phone input:focus {
+    border-color: #148CE3;
+}
+
+.title {
+    text-align: center;
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333;
+}
+
+.error {
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+/* Loader */
+#loader {
+    text-align: center;
+    display: none;
+    padding: 30px;
+}
+
+.spin {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: solid 8px #148CE3;
+    border-right-color: transparent;
+    border-radius: 50%;
+    margin: 10px auto;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(1turn); }
+}
+
+#num {
+    font-size: 18px;
+    font-weight: bold;
+    color: #148CE3;
+    margin-top: 10px;
+}
+
+/* Progress Bar */
+.barr {
+    max-width: 350px;
+    margin: 20px auto;
+}
+
+.fill {
+    position: relative;
+    display: inline-block;
+    width: calc(100% - 100px);
+    height: 35px;
+    border: 2px solid #148CE3;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#fill2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #43B05F;
+    width: 0%;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.percentage {
+    width: 90px;
+    float: right;
+    height: 35px;
+    font-size: 14px;
+    border: 2px solid #148CE3;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+/* Tip Text */
+.tip {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    padding: 5px 15px;
+}
+
+.amount {
+    color: #43B05F;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Share Buttons */
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px auto;
+}
+
+.share-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1DAE56;
+    transform: scale(1.02);
+}
+
+/* Telp Button */
+.telbtn {
+    background-color: #5CA071;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    height: 55px;
+    border-radius: 50px;
+    margin: 10px auto;
+    max-width: 280px;
+}
+
+.telbtn .telp {
+    color: white;
+    font-size: 18px;
+    padding: 16px 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.telbtn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Footer Image */
+.footer-img {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Comments Section */
+.comments {
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 15px;
+}
+
+.counter {
+    color: #7f7f7f;
+    font-size: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #43B05F;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.reactions {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.reactions img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.bar {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #43B05F;
+    padding: 8px 0;
+}
+
+.bar .react {
+    flex: 1;
+    font-size: 13px;
+    color: #7f7f7f;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.bar .react:hover {
+    color: #148CE3;
+}
+
+.comment {
+    padding: 8px 0;
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.comment img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.single-container {
+    background: #f1f2f6;
+    padding: 10px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    flex: 1;
+}
+
+.single-container .user {
+    display: inline-block;
+    cursor: pointer;
+    color: #365899;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.single-container .text {
+    display: block;
+    font-size: 12px;
+    color: #333;
+}
+
+.buttons {
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 46px;
+    color: #90949c;
+}
+
+.action {
+    cursor: pointer;
+}
+
+.action:hover {
+    text-decoration: underline;
+}
+
+.input {
+    padding: 10px 0;
+}
+
+.input input {
+    width: 100%;
+    background: #f1f2f6;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+}
+
+.done {
+    text-align: center;
+    color: #27ae60;
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+/* Popup Notifications */
+.popup {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    width: 90%;
+    max-width: 350px;
+    background-color: #148CE3;
+    color: #FFF;
+    padding: 15px 20px;
+    font-weight: 700;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 10px;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 99999;
+    transition: all 0.5s ease;
+    font-size: 14px;
+}
+
+.popup.show {
+    top: 10px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hidden Sections */
+#info, #checking, #share, #claim {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.dot {
+    margin: 0 3px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-primary {
+    animation: pulse 1.5s infinite;
+  }
