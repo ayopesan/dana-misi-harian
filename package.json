@@ -1,0 +1,16 @@
+{
+  "name": "dana-hajatan-ulang-tahun",
+  "version": "1.0.0",
+  "description": "DANA Hajatan Ulang Tahun Landing Page with Telegram Integration",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Build completed'"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^1.0.0"
+  }
+}
